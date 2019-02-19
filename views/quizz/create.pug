@@ -1,0 +1,33 @@
+extends ../_layout.pug
+
+block content
+    form(method='POST')
+        .form-group
+            label Name
+            input.form-control(name='name', type='text')
+        .form-group
+            label Number of questions
+            input.form-control(name='question_number', type='number')
+        .form-group
+            label Subject
+            input.form-control(name='subject', type='text')
+        .form-group
+            label Question
+            input.form-control(name='question', type='text')
+        .form-group
+            label Answer 1
+            input.form-control(name='answer1', type='text')
+        .form-group
+            label Answer 2
+            input.form-control(name='answer2', type='text')
+        .form-group
+            label Answer 3
+            input.form-control(name='answer3', type='text')
+        .form-group
+            label Answer 4
+            input.form-control(name='answer4', type='text')
+        .form-group
+            label Correct answer 
+            input.form-control(name='correct answer', type='text')
+        .form-group
+            input.btn.btn-primary(type='submit', value='Go')

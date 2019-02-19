@@ -1,0 +1,58 @@
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title KahootQuizz
+    // Bootstrap core CSS
+    link(href='/bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+    // Custom styles for this template
+    link(href='/css/bf.css', rel='stylesheet')
+  body
+    header
+      #navbarHeader.bg-dark.collapse.hide(style='')
+        .container
+          .row
+            .col-sm-8.col-md-7.py-4
+              h4.text-white The Kahoot Quizz
+            .col-sm-4.offset-md-1.py-4
+              h4.text-white Contact
+              ul.list-unstyled
+                li
+                  a.text-white(href='#') Follow on Twitter
+                li
+                  a.text-white(href='#') Like on Facebook
+                li
+                  a.text-white(href='#') Email me
+      .navbar.navbar-dark.bg-dark.box-shadow
+        .container.d-flex.justify-content-between
+          a.navbar-brand.d-flex.align-items-center(href='#')
+            i.fa.fa-beer
+            strong KahootQuizz
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarHeader', aria-controls='navbarHeader', aria-expanded='true', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          if session.passport && session.passport.user
+            button.btn.btn-info
+              span= session.passport.user.username
+    main(role='main')
+      block content
+    
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/bower_components/socket.io-client/dist/socket.io.js')
+    script.
+      const socket = io('http://localhost:1664');
+      socket.on('new quizz', msg => alert(msg));
+      //- socketio.on('connection', socket => {
+      //- });
+      
+    svg(xmlns='http://www.w3.org/2000/svg', width='348', height='225', viewBox='0 0 348 225', preserveAspectRatio='none', style='display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;')
+      defs
+        style(type='text/css').
+      text(x='0', y='17', style='font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif') Thumbnail

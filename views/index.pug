@@ -1,0 +1,16 @@
+extends ./_layout.pug
+
+block content
+  section.jumbotron.text-center
+    .container
+      a.btn.btn-primary.my-2(href='/users/login') Sign In
+      a.btn.btn-secondary.my-2(href='/users/signup') Register
+      h1.jumbotron-heading Welcome to the Kahoot Quizz   
+    .album.py-5.bg-light
+    .container
+      .row
+        h1 Here is the quizz list : 
+          each quizz in quizzs
+            - var lnk = '/quizz/view/' + quizz.id
+            a(href=lnk) #{quizz.name}
+          

@@ -1,0 +1,8 @@
+extends ../_layout.pug
+
+block content
+    h1 Êtes-vous sur de vouloir supprimer ce quizz #{quizz.name} ?
+    form(method='POST')
+        .form-group
+            input.btn.btn-primary(type='submit', value='Yes')
+            a.btn(href='/') No
