@@ -43,3 +43,31 @@
     flex-direction: column;
     margin: auto;
   }
+
+td {
+    border: solid 1px;
+    padding: 12px;
+}
+
+table {
+  width: 100%;
+}
+
+.fa-play{
+  cursor: pointer;
+}
+
+.btn.btn-primary.my-2{
+  background-color: chocolate;
+  border: chocolate;
+  margin-right: 10px;
+}
+
+.btn.btn-secondary.my-2{
+  background-color: brown;
+  border: brown;
+  margin-left: 10px;
+}
+.fa.fa-trophy{
+  margin-right: 10px;
+}

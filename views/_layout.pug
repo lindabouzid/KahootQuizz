@@ -12,27 +12,12 @@ html(lang='en')
     link(href='/css/bf.css', rel='stylesheet')
   body
     header
-      #navbarHeader.bg-dark.collapse.hide(style='')
-        .container
-          .row
-            .col-sm-8.col-md-7.py-4
-              h4.text-white The Kahoot Quizz
-            .col-sm-4.offset-md-1.py-4
-              h4.text-white Contact
-              ul.list-unstyled
-                li
-                  a.text-white(href='#') Follow on Twitter
-                li
-                  a.text-white(href='#') Like on Facebook
-                li
-                  a.text-white(href='#') Email me
+      
       .navbar.navbar-dark.bg-dark.box-shadow
         .container.d-flex.justify-content-between
           a.navbar-brand.d-flex.align-items-center(href='#')
-            i.fa.fa-beer
-            strong KahootQuizz
-          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarHeader', aria-controls='navbarHeader', aria-expanded='true', aria-label='Toggle navigation')
-            span.navbar-toggler-icon
+            i.fa.fa-trophy
+            strong Kahoot!
           if session.passport && session.passport.user
             button.btn.btn-info
               span= session.passport.user.username

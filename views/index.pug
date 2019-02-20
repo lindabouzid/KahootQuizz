@@ -3,14 +3,26 @@ extends ./_layout.pug
 block content
   section.jumbotron.text-center
     .container
+      h1.jumbotron-heading Welcome to the Kahoot Quizz   
       a.btn.btn-primary.my-2(href='/users/login') Sign In
       a.btn.btn-secondary.my-2(href='/users/signup') Register
-      h1.jumbotron-heading Welcome to the Kahoot Quizz   
     .album.py-5.bg-light
     .container
       .row
         h1 Here is the quizz list : 
+        table
+          tr
+            td Quizz name
+            td Number of question
+            td Subject
+            td Play
           each quizz in quizzs
             - var lnk = '/quizz/view/' + quizz.id
-            a(href=lnk) #{quizz.name}
+            tr
+              td 
+                a(href=lnk) #{quizz.name}
+              td #{quizz.question_number}
+              td #{quizz.subject}
+              td 
+                i.fa.fa-play
           
