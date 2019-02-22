@@ -53,7 +53,6 @@ app.use('/users', usersRoutes);
 app.use('/admin', admRoutes);
 
 
-
 // app.user('/users', users);
 
 
