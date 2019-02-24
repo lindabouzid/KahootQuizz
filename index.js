@@ -9,12 +9,12 @@ const io = require('socket.io')(http);
 const path = require('path');
 const port = process.env.PORT || 1664;
 
-require('./models/game');
+require('./models/User');
 require('./models/Quizz');
 
 mongoose.connect('mongodb://localhost/KahootQuizz');
 
-const routes = require('./routes/index');
+const routes = require('./routes/index')(io);
 const quizzRoutes = require('./routes/quizz/index')(io);
 const usersRoutes = require('./routes/users');
 const admRoutes = require('./routes/admin');
@@ -48,6 +48,9 @@ app.use('/admin', admRoutes);
 io.on('connection', socket => {
     console.log('A user connected');
     socket.on('disconnect', () => console.log('user disconnected'));
+    socket.on('player join', params =>{
+        console.log("params : ",params);
+    });    
 });
 
 http.listen(port, () => console.log(`App listening at http://127.0.0.1:${port}`));

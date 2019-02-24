@@ -11,7 +11,9 @@ const Quizz = new Schema({
         answer3: String,
         answer4: String,
         correct_answer: String
-    }]
+    }],
+    pin: Number,
+    user : {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Quizz', Quizz);

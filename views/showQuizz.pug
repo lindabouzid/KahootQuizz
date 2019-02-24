@@ -25,6 +25,6 @@ block content
                 a(href=lnk1) #{quizz.name}
               td #{quizz.subject}
               td 
-                i.fa.fa-play
+                a.i.fa.fa-play(href='/quizz/play/'+ quizz.id)
               td
                 a.btn.crud2(href=lnk3) Delete

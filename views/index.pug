@@ -3,16 +3,16 @@ extends ./_layout.pug
 block content
   div.cont
     h1 Joindre un quizz
-    form(action='/lobby.html')
-    .form-field
-      label Nom
-      input(type='text' name='name')
-    br
-    .form-field
-      label Quizz Id
-      input(type='number' name='id')
-    br
-    .form-field
-      button Joindre
-    br
+    form(method='POST')
+      .form-field
+        label Nom
+        input(type='text' name='name')
+      br
+      .form-field
+        label Quizz Id
+        input(type='number' name='id')
+      br
+      .form-group
+        input.btn.btn-primary(type='submit', value='Joindre')
+      br
     a(href='/show') Click Here to Create or Host a Kahoot

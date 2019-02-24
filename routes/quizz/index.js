@@ -58,5 +58,14 @@ module.exports = (io) => {
         });
     });
 
+    router.get('/play/:id', (req, res, next) => {
+        const gamePin = Math.floor(Math.random()*90000) + 10000; //new pin for game
+        mongoose.model('Quizz').findByIdAndUpdate(req.params.id, { $set: { pin: gamePin }}, (err, item) => {
+            if(err)
+                res.send(err);
+            else
+                res.render('quizz/play', { quizz: item, pin: gamePin });
+        });
+    });
     return router;
 }
