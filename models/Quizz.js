@@ -3,9 +3,8 @@ const Schema = mongoose.Schema;
 
 const Quizz = new Schema({
     name: String,
-    question_number: Number,
     subject: String,
-    Questions : [{
+    questions : [{
         question: String,
         answer1: String,
         answer2: String,

@@ -1,0 +1,30 @@
+extends ./_layout.pug
+
+block content
+  section.jumbotron.text-center
+    .container
+      h1.jumbotron-heading Welcome to the Kahoot Quizz   
+      //- a.btn.btn-primary.my-2(href='/users/login') Sign In
+      //- a.btn.btn-secondary.my-2(href='/users/signup') Register
+    .container
+      a.btn.btn-secondary.my-3(href='/quizz/create') Create new quizz
+      .row
+        h1.margin Voici la liste des quizz :
+        table
+          tr
+            td Quizz name
+            td Subject
+            td Play
+            td Gérer quizz
+          each quizz in quizzs
+            - var lnk1 = '/quizz/view/' + quizz.id
+            - var lnk3 = '/quizz/delete/' + quizz.id
+
+            tr
+              td 
+                a(href=lnk1) #{quizz.name}
+              td #{quizz.subject}
+              td 
+                i.fa.fa-play
+              td
+                a.btn.crud2(href=lnk3) Delete

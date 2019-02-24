@@ -13,14 +13,6 @@ html(lang='en')
   body
     header
       
-      .navbar.navbar-dark.bg-dark.box-shadow
-        .container.d-flex.justify-content-between
-          a.navbar-brand.d-flex.align-items-center(href='#')
-            i.fa.fa-trophy
-            strong Kahoot!
-          if session.passport && session.passport.user
-            button.btn.btn-info
-              span= session.passport.user.username
     main(role='main')
       block content
     

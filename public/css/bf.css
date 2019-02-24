@@ -71,3 +71,33 @@ table {
 .fa.fa-trophy{
   margin-right: 10px;
 }
+
+.cont{
+  width: 50%;
+  margin: 80px auto 0 auto;
+  text-align: center;
+}
+
+.form-group{
+  width: 300px;
+  display: flex;
+  
+}
+
+.form-group label{
+  width: 100px;
+}
+
+.question{
+  display: flex;
+}
+.crud1{
+  background-color: cornflowerblue;
+  margin-right: 10px;
+}
+.crud2{
+  background-color: red;
+}
+.margin{
+  margin: 20px !important;
+}

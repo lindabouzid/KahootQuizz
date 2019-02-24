@@ -3,8 +3,6 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const passport = require('passport');
-require('../passport/local-strategy')(passport);
 
 router.get('/signup', (req, res, next) => {
     res.render('users/register');
@@ -21,9 +19,6 @@ router.get('/login', (req, res, next) => {
     res.render('users/login');
 });
 
-router.post('/login',passport.authenticate('local', { failureRedirect: '/error'}) ,(req, res, next) => {
-    res.redirect('/');
-});
 
 router.get('/logout',(req, res, next) => {
     req.logout();

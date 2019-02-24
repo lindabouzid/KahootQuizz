@@ -8,36 +8,29 @@ module.exports = (io) => {
     });
     
     router.post('/create', (req, res, next) => {
+        const item = req.body;
+        console.log('item', item);
+
         req.body.tested = req.body.tested === 'on' ? true : false;
-        mongoose.model('Quizz').create(req.body, (err, item) => {
-            if(err)
+        mongoose.model('Quizz').create(req.body, { $push: { question: item.questions }}, (err, item) => {
+            if(err){
                 res.send(err);
+
+            }
             else {
-                io.sockets.emit('new quizz', `${req.user.username} created a new quizz : ${item.name}`);
-                res.redirect('/');
+                console.log('test', item.questions);
+                // io.sockets.emit('new quizz', `${req.user.username} created a new quizz : ${item.name}`);
+                // res.render('showQuizz', {quizzs : items });
+                mongoose.model('Quizz').find({}, (err, items) => {
+                    res.render('showQuizz', { quizzs : items });       
+                });
             }
         });
     });
-    
-    router.get('/edit/:id', (req, res, next) => {
-        mongoose.model('Quizz').findById(req.params.id, (err, item) => {
-            res.render('quizz/edit', { quizz: item });
-        });
-    });
-    
-    router.post('/edit/:id', (req, res, next) => {
-        req.body.tested = req.body.tested === 'on' ? true : false;
-        mongoose.model('Quizz').findByIdAndUpdate(req.params.id, req.body, (err, item) => {
-            if(err)
-                res.send(err);
-            else
-                res.redirect('/');
-        });
-    });
-    
+       
     router.get('/delete/:id', (req, res, next) => {
         mongoose.model('Quizz').findById(req.params.id, (err, item) => {
-            res.render('quizz/edit', { quizz: item });
+            res.render('quizz/delete', { quizz: item });
         });
     });
     
@@ -46,7 +39,7 @@ module.exports = (io) => {
             if(err)
                 res.send(err);
             else
-                res.redirect('/');
+                res.redirect('/show');
         });
     });
 

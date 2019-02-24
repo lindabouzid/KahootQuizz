@@ -1,29 +1,18 @@
 extends ./_layout.pug
-
-block content
-  section.jumbotron.text-center
-    .container
-      h1.jumbotron-heading Welcome to the Kahoot Quizz   
-      a.btn.btn-primary.my-2(href='/users/login') Sign In
-      a.btn.btn-secondary.my-2(href='/users/signup') Register
-    .album.py-5.bg-light
-    .container
-      a.btn.btn-secondary.my-3(href='/quizz/create') Create new quizz
-      .row
-        h1 Here is the quizz list : 
-        table
-          tr
-            td Quizz name
-            td Number of question
-            td Subject
-            td Play
-          each quizz in quizzs
-            - var lnk = '/quizz/view/' + quizz.id
-            tr
-              td 
-                a(href=lnk) #{quizz.name}
-              td #{quizz.question_number}
-              td #{quizz.subject}
-              td 
-                i.fa.fa-play
           
+block content
+  div.cont
+    h1 Joindre un quizz
+    form(action='/lobby.html')
+    .form-field
+      label Nom
+      input(type='text' name='name')
+    br
+    .form-field
+      label Quizz Id
+      input(type='number' name='id')
+    br
+    .form-field
+      button Joindre
+    br
+    a(href='/show') Click Here to Create or Host a Kahoot

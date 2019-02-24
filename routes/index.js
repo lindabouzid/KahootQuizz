@@ -4,14 +4,20 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-router.get('/', (req, res, next) => {
+router.get('/show', (req, res, next) => {
     mongoose.model('Quizz').find({}, (err, items) => {
-        res.render('index', { title: "Welcome to the Kahoot Quizz", quizzs : items });       
+        res.render('showQuizz', { quizzs : items });       
     });
 });
 
-router.get('/goodbye', (req, res, next) => {
-    res.render('index', { title: "Goodbye !" });
+// router.post('/quizz/create', (req, res, next) => {
+//     mongoose.model('Quizz').find({}, (err, items) => {
+//         res.render('showQuizz', {quizzs : items });       
+//     });
+// });
+
+router.get('/', (req, res, next) => {
+        res.render('index');       
 });
 
 
