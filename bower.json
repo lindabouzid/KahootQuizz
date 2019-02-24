@@ -3,10 +3,9 @@
   "description": "Base NodeJS with Express",
   "main": "index.js",
   "authors": [
-    "Sion GENDERS"
+    " noOne"
   ],
   "license": "MIT",
-  "homepage": "https://genius.army",
   "ignore": [
     "**/.*",
     "node_modules",

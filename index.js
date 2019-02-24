@@ -9,15 +9,12 @@ const io = require('socket.io')(http);
 const path = require('path');
 const port = process.env.PORT || 1664;
 
-require('./models/User');
 require('./models/Quizz');
 
 mongoose.connect('mongodb://localhost/KahootQuizz');
 
 const routes = require('./routes/index')(io);
 const quizzRoutes = require('./routes/quizz/index')(io);
-const usersRoutes = require('./routes/users');
-const admRoutes = require('./routes/admin');
 
 app.use(express.static(path.join(__dirname, '/public')));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
@@ -40,9 +37,6 @@ app.use((req, res, next) => {
 
 app.use('/', routes);
 app.use('/quizz', quizzRoutes);
-app.use('/users', usersRoutes);
-app.use('/admin', admRoutes);
-
 
 
 io.on('connection', socket => {

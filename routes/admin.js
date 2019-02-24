@@ -1,4 +1,3 @@
-// http://git.estiam.com/sion.genders/NodeJSExpress
 
 const express = require('express');
 const router = express.Router();

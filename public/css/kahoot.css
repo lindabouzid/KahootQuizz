@@ -101,3 +101,7 @@ table {
 .margin{
   margin: 20px !important;
 }
+.bout{
+  position: relative;
+  left: 200px;
+}
